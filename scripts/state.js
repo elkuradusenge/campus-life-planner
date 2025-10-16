@@ -9,7 +9,7 @@ const isFirstVisit = !localStorage.getItem(VISIT_KEY);
 async function initEvents() {
   if (isFirstVisit) {
     try {
-      const res = await fetch("../data.json");
+      const res = await fetch("./data.json");
       if (!res.ok) throw new Error("Failed to load seed data");
       const raw = await res.json();
       const validRecords = (Array.isArray(raw) ? raw : []).filter(validateRecord);
@@ -45,7 +45,7 @@ export const state = {
 
   async resetToDefault() {
     try {
-      const res = await fetch("../data.json");
+      const res = await fetch("./data.json");
       if (!res.ok) throw new Error();
       const raw = await res.json();
       const validRecords = (Array.isArray(raw) ? raw : []).filter(validateRecord);
