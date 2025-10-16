@@ -1,0 +1,92 @@
+[
+  {
+    "id": "task_001",
+    "title": "Group study session",
+    "dueDate": "2025-10-18",
+    "duration": 90,
+    "tag": "Academics",
+    "createdAt": "2025-10-15T09:00:00Z",
+    "updatedAt": "2025-10-15T09:00:00Z"
+  },
+  {
+    "id": "task_002",
+    "title": "Basketball practice",
+    "dueDate": "2025-10-17",
+    "duration": 120,
+    "tag": "Sports",
+    "createdAt": "2025-10-15T10:30:00Z",
+    "updatedAt": "2025-10-15T10:30:00Z"
+  },
+  {
+    "id": "task_003",
+    "title": "Student council meeting",
+    "dueDate": "2025-10-19",
+    "duration": 60,
+    "tag": "Leadership",
+    "createdAt": "2025-10-15T11:00:00Z",
+    "updatedAt": "2025-10-15T11:00:00Z"
+  },
+  {
+    "id": "task_004",
+    "title": "Community cleanup",
+    "dueDate": "2025-10-20",
+    "duration": 150,
+    "tag": "Volunteering",
+    "createdAt": "2025-10-15T12:15:00Z",
+    "updatedAt": "2025-10-15T12:15:00Z"
+  },
+  {
+    "id": "task_005",
+    "title": "Music club rehearsal",
+    "dueDate": "2025-10-16",
+    "duration": 90,
+    "tag": "Arts",
+    "createdAt": "2025-10-15T13:00:00Z",
+    "updatedAt": "2025-10-15T13:00:00Z"
+  },
+  {
+    "id": "task_006",
+    "title": "Programming workshop",
+    "dueDate": "2025-10-21",
+    "duration": 180,
+    "tag": "Tech",
+    "createdAt": "2025-10-15T13:45:00Z",
+    "updatedAt": "2025-10-15T13:45:00Z"
+  },
+  {
+    "id": "task_007",
+    "title": "Career guidance seminar",
+    "dueDate": "2025-10-22",
+    "duration": 120,
+    "tag": "Career",
+    "createdAt": "2025-10-15T14:20:00Z",
+    "updatedAt": "2025-10-15T14:20:00Z"
+  },
+  {
+    "id": "task_008",
+    "title": "Movie night event",
+    "dueDate": "2025-10-19",
+    "duration": 150,
+    "tag": "Entertainment",
+    "createdAt": "2025-10-15T15:10:00Z",
+    "updatedAt": "2025-10-15T15:10:00Z"
+  },
+  {
+    "id": "task_009",
+    "title": "Peer mentorship session",
+    "dueDate": "2025-10-17",
+    "duration": 75,
+    "tag": "Mentorship",
+    "createdAt": "2025-10-15T15:40:00Z",
+    "updatedAt": "2025-10-15T15:40:00Z"
+  },
+  {
+    "id": "task_010",
+    "title": "Entrepreneurship fair",
+    "dueDate": "2025-10-23",
+    "duration": 240,
+    "tag": "Business",
+    "createdAt": "2025-10-15T16:00:00Z",
+    "updatedAt": "2025-10-15T16:00:00Z"
+  }
+]
