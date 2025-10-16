@@ -1,5 +1,5 @@
 import { state } from "./state.js";
-import { compileRegex, highlight, validateField } from "./utils.js";
+import { compileRegex, highlight, validateField, showToast } from "./utils.js";
 
 const tableBody = document.querySelector("#eventsTable tbody");
 const search = document.getElementById("search");
