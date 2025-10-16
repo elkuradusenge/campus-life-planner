@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life Planner</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">CLP</a></h1>
+            <ul>
+                <li><a href="index.html" class="current">Dashboard</a></li>
+                <li><a href="./pages/events.html">Events</a></li>
+                <li><a href="./pages/settings.html">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main-content">
+        <section id="hero">
+            <div class="hero-overlay">
+                <h2>Welcome to the Campus Life Planner</h2>
+                <p>Manage your day-to-day campus activities efficiently at ALU.</p>
+            </div>
+        </section>
+        <section id="upcoming">
+            <h2>Upcoming Events</h2>
+            <ul id="upcomingList"></ul>
+        </section>
+
+        <section id="stats">
+            <h2>Stats & Trends</h2>
+            <div id="statsContainer">
+                <p><strong>Total Events:</strong> <span id="totalEvents">0</span></p>
+                <p><strong>Total Duration:</strong> <span id="totalDuration">0</span></p>
+                <p><strong>Top Tag:</strong> <span id="topTag">N/A</span></p>
+            </div>
+            <div id="trendChart" class="chart"></div>
+        </section>
+
+        <section id="about">
+            <h2>About Campus Life Planner</h2>
+            <p>Campus Life Planner is designed to help students manage their campus activities effectively. Plan your
+                events, track your time, and stay organized with ease.</p>
+            <p>Version: 1.0.0</p>
+            <p>Developed by <a href="https://github.com/elkuradusenge">Elie Kuradusenge</a> | <a
+                    href="mailto:e.kuradusen@alustudent.com">e.kuradusen@alustudent.com</a></p>
+        </section>
+    </div>
+
+    <footer id="main-footer">
+        <p>&copy; 2025 Campus Life Planner (CLP). All rights reserved.</p>
+    </footer>
+
+    <div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+    <script type="module">
+        import { applySavedTheme } from './scripts/utils.js';
+        applySavedTheme();
+    </script>
+    <script type="module" src="scripts/index.js"></script>
+</body>
+
+</html>
