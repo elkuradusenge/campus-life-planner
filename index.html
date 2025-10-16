@@ -11,27 +11,24 @@
 <body>
     <nav id="navbar">
         <div class="container">
-            <h1 class="logo"><a href="index.html">CLP</a></h1>
+            <h1 class="logo"><a href="/index.html">CLP</a></h1>
             <ul>
-                <li><a href="index.html" class="current">Dashboard</a></li>
+                <li><a href="index.html" class="current">Home</a></li>
                 <li><a href="./pages/events.html">Events</a></li>
                 <li><a href="./pages/settings.html">Settings</a></li>
             </ul>
         </div>
     </nav>
+
     <div class="main-content">
-        <section id="hero">
+        <div id="hero">
             <div class="hero-overlay">
                 <h2>Welcome to the Campus Life Planner</h2>
                 <p>Manage your day-to-day campus activities efficiently at ALU.</p>
             </div>
-        </section>
-        <section id="upcoming">
-            <h2>Upcoming Events</h2>
-            <ul id="upcomingList"></ul>
-        </section>
+        </div>
 
-        <section id="stats">
+        <div id="stats">
             <h2>Stats & Trends</h2>
             <div id="statsContainer">
                 <p><strong>Total Events:</strong> <span id="totalEvents">0</span></p>
@@ -39,17 +36,52 @@
                 <p><strong>Top Tag:</strong> <span id="topTag">N/A</span></p>
             </div>
             <div id="trendChart" class="chart"></div>
-        </section>
+        </div>
 
-        <section id="about">
+        <div id="upcoming">
+            <h2>Upcoming Events</h2>
+            <ul id="upcomingList"></ul>
+        </div>
+
+        <div id="about">
             <h2>About Campus Life Planner</h2>
-            <p>Campus Life Planner is designed to help students manage their campus activities effectively. Plan your
-                events, track your time, and stay organized with ease.</p>
-            <p>Version: 1.0.0</p>
-            <p>Developed by <a href="https://github.com/elkuradusenge">Elie Kuradusenge</a> | <a
-                    href="mailto:e.kuradusen@alustudent.com">e.kuradusen@alustudent.com</a></p>
-        </section>
+            <p>
+                <strong>Campus Life Planner</strong> is your personal assistant for navigating university life with
+                clarity and confidence.
+                Designed for students who want to make the most of their time on campus, it helps you <em>plan
+                    smarter</em>,
+                <em>stay organized</em>, and <em>achieve balance</em> between academics, social life, and personal
+                growth.
+            </p>
+
+            <p>
+                Whether you’re managing class projects, club events, or personal goals, the Campus Life Planner keeps
+                everything in one place —
+                so you can focus on what truly matters: learning, connecting, and growing.
+            </p>
+
+            <p>
+                Every feature is built with students in mind — from quick event tracking and smart reminders to
+                insightful stats that help you
+                understand where your time goes. It’s not just a planner — it’s your roadmap to a more intentional,
+                productive,
+                and fulfilling campus experience.
+            </p>
+
+            <p>
+                <strong>Designed with ❤️ by:</strong>
+                <a href="https://github.com/elkuradusenge" target="_blank">Elie Kuradusenge</a> |
+                <a href="mailto:e.kuradusen@alustudent.com">e.kuradusen@alustudent.com</a>
+            </p>
+
+            <div class="clock-container">
+                <p><strong>Current Time:</strong> <span id="clock">--:--:--</span></p>
+                <p><strong>Browser:</strong> <span id="browserName">Detecting...</span></p>
+            </div>
+        </div>
+
     </div>
+
 
     <footer id="main-footer">
         <p>&copy; 2025 Campus Life Planner (CLP). All rights reserved.</p>
@@ -59,6 +91,28 @@
     <script type="module">
         import { applySavedTheme } from './scripts/utils.js';
         applySavedTheme();
+
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            clock.textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // --- BROWSER DETECTION ---
+        function getBrowserName() {
+            const userAgent = navigator.userAgent;
+            if (userAgent.includes("Firefox")) return "Mozilla Firefox";
+            if (userAgent.includes("Edg")) return "Microsoft Edge";
+            if (userAgent.includes("Chrome")) return "Google Chrome";
+            if (userAgent.includes("Safari")) return "Apple Safari";
+            if (userAgent.includes("Opera") || userAgent.includes("OPR")) return "Opera";
+            return "Unknown Browser";
+        }
+
+        document.getElementById('browserName').textContent = getBrowserName()
     </script>
     <script type="module" src="scripts/index.js"></script>
 </body>

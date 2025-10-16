@@ -1,5 +1,5 @@
 import { state } from "./state.js";
-import { showToast } from "./utils.js";
+import { isDuplicate, showToast, validateRecord } from "./utils.js";
 
 /* -----------------------------
    GLOBALS & SHARED UTILITIES
@@ -47,6 +47,11 @@ export function renderUpcoming() {
     upcomingList.innerHTML = upcoming.length
         ? upcoming.map(e => `<li><strong>${e.title}</strong> – ${e.dueDate}</li>`).join("")
         : "<li>No upcoming events.</li>";
+
+    if (state.isFirstVisit) {
+        showToast("Welcome to Campus Life Planner! 🎉 Let's get started.", "info");
+    }
+
 }
 
 export function renderStats() {
@@ -118,27 +123,55 @@ if (exportBtn) {
     });
 }
 
-// Import
+// Import specific section
 if (importBtn && importFile) {
     importBtn.addEventListener("click", () => importFile.click());
+
     importFile.addEventListener("change", e => {
         const file = e.target.files[0];
         if (!file) return;
+
         const reader = new FileReader();
         reader.onload = () => {
             try {
                 const data = JSON.parse(reader.result);
+
                 if (!Array.isArray(data)) throw new Error("Invalid file format");
-                state.events = data;
-                localStorage.setItem(DATA_KEY, JSON.stringify(data));
-                showToast(`Data imported successfully`, "success");
-            } catch {
-                showToast(`SOmething went wrong while reading file`, "error");
+
+                const validRecords = [];
+                const skipped = [];
+
+                for (const record of data) {
+                    if (validateRecord(record) && !isDuplicate(record, state.events)) {
+                        validRecords.push(record);
+                    } else {
+                        skipped.push(record);
+                    }
+                }
+
+                if (validRecords.length === 0) {
+                    showToast("No valid new records found to import.", "error");
+                    return;
+                }
+
+                // merge with existing data
+                state.events = [...state.events, ...validRecords];
+                localStorage.setItem(DATA_KEY, JSON.stringify(state.events));
+
+                showToast(
+                    `✅ Imported ${validRecords.length} records. Skipped ${skipped.length}.`,
+                    "success"
+                );
+            } catch (err) {
+                console.error(err);
+                showToast("❌ Something went wrong while reading file.", "error");
             }
         };
+
         reader.readAsText(file);
     });
 }
+
 
 if (clearBtn) {
     clearBtn.addEventListener("click", () => {

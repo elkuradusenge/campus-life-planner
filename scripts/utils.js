@@ -34,6 +34,27 @@ export function validateField(name, value) {
   return re.test(value);
 }
 
+export function validateRecord(record) {
+  const requiredFields = ["title", "dueDate", "duration", "tag"];
+  // ensure all required fields exist and match patterns
+  for (const field of requiredFields) {
+    if (!record[field] || !validateField(field, record[field])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Prevent duplicates based on title + dueDate
+export function isDuplicate(newRecord, existingEvents) {
+  return existingEvents.some(
+    ev =>
+      ev.title.trim().toLowerCase() === newRecord.title.trim().toLowerCase() &&
+      ev.dueDate === newRecord.dueDate
+  );
+}
+
+
 
 export function showToast(message, type = "success") {
   const container = document.getElementById("toastContainer");
