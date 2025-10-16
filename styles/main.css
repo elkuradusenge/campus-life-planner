@@ -95,7 +95,7 @@ footer.dark-theme {
 }
 
 #hero {
-  background: url('/img/RW-Campus-121921688.jpg') no-repeat center center/cover;
+  background: url('../img/RW-Campus-121921688.jpg') no-repeat center center/cover;
   height: 60vh;
   position: relative;
   display: flex;
